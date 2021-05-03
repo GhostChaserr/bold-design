@@ -18,7 +18,7 @@ export const StyledLabel = styled.label<{
   font-size: 1rem;
   padding-left: 10px;
   color: ${({ theme }) => {
-    if (theme == 'dark') return 'white;'
+    if (theme === 'dark') return 'white;'
     else return 'black;'
   }}
 `

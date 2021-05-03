@@ -1,4 +1,4 @@
-import { SizeType, ThemeType } from "components/types/shared.types"
+import { SizeType, ThemeType } from 'components/types/shared.types'
 
 export type ButtonType = 'regular' | 'floating'
 export type ButtonColor = 'lightRed' | 'boldRed' | 'strongRed'

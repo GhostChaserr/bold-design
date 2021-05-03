@@ -1,28 +1,28 @@
 import React, { useState } from 'react'
 
 import { TabProps } from './TabTypes'
-import { 
+import {
   StyledTabButtonContainer,
   StyledTabButton,
   StyledTabButtonsWrapper,
   StyledTabContentWrapper,
   StyledTabWrapper,
-} from './TabStyles';
+} from './TabStyles'
 
 
-const Tab = ({ 
+const Tab = ({
   tabComponents,
   center
 }: TabProps) => {
-  const [activeTab, setActiveTab] = useState<string>(tabComponents[0].tab);
-  const tabs = tabComponents.map(tabComponent => tabComponent.tab);
+  const [activeTab, setActiveTab] = useState<string>(tabComponents[0].tab)
+  const tabs = tabComponents.map(tabComponent => tabComponent.tab)
 
   const handleTabChange = (tab: string) => setActiveTab(tab)
   const renderTabButton = (tab: string) => {
 
     // Get current tab.
-    const active: string = activeTab;
-    const isActive: boolean = active === tab;
+    const active: string = activeTab
+    const isActive: boolean = active === tab
 
     return (
       <StyledTabButtonContainer key={tab}>
@@ -33,8 +33,8 @@ const Tab = ({
           {tab}
         </StyledTabButton>
       </StyledTabButtonContainer >
-    );
-  };
+    )
+  }
 
   const renderContent = (activeTab: string) => {
     return tabComponents.find(tabComponent => tabComponent.tab === activeTab)?.component
@@ -65,7 +65,7 @@ Tab.defaultProps = {
       component: <p> accessories component </p>
     },
   ]
-  
+
 }
 
 export default Tab

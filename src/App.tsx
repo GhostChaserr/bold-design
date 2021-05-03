@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+
 
 
 
@@ -8,6 +9,8 @@ import Input from 'components/Input'
 import Button from 'components/Button'
 import Tab from 'components/Tab'
 
+import { Modal } from './components'
+
 const tabComponents = [
   {
     tab: 'products',
@@ -15,40 +18,38 @@ const tabComponents = [
   },
   {
     tab: 'accessories',
-    component: <p> accessories component </p>
-  },
-  {
-    tab: 'activities',
-    component: <p> Products component </p>
-  },
-  {
-    tab: 'employees',
-    component: <p> accessories component </p>
-  },
-  {
-    tab: 'products2',
-    component: <p> Products component </p>
-  },
-  {
-    tab: 'accessories3',
-    component: <p> accessories component </p>
-  },
-  {
-    tab: 'activities4',
-    component: <p> Products component </p>
-  },
-  {
-    tab: 'employees5',
-    component: <p> accessories component </p>
-  },
+    component: <p> Component.. </p>
+  }
 ]
 
 function App() {
+  const [modalOpen, setModalOpen] = useState(true)
+
+  const handleUpdate = () => {
+    setTimeout(() => {
+      setModalOpen(false)
+    }, 2000)
+  }
   return (
-    <div style={{ width: '100vw' }} className='App'>
-      <Tab
-        tabComponents={tabComponents}
-      />
+    <div style={{ width: '100vw', height: '100vh' }}>
+      <Modal
+        headerText='Edit profile info'
+        open={modalOpen}
+        handleClose={() => setModalOpen(false)}
+      >
+        <div>
+          <EditableInput />
+        </div>
+        <div>
+          <EditableInput />
+        </div>
+        <div>
+          <EditableInput />
+        </div>
+        <div style={{ marginTop: '10px' }}>
+          <Button handleClick={handleUpdate} block={true}/> 
+        </div>
+      </Modal>
     </div>
   )
 }
