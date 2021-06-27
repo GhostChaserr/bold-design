@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 
 
 
@@ -8,8 +8,10 @@ import EditableInput from './components/EditableInput'
 import Input from 'components/Input'
 import Button from 'components/Button'
 import Tab from 'components/Tab'
+import Modal from 'components/Modal'
+import Theme from 'components/Theme'
+import { ThemeContext } from 'contexts'
 
-import { Modal } from './components'
 
 const tabComponents = [
   {
@@ -22,35 +24,27 @@ const tabComponents = [
   }
 ]
 
+const Toggler = () => {
+  const { themeToggler } = useContext(ThemeContext)
+  return (
+    <button onClick={themeToggler}> Toggle </button>
+  )
+}
+
 function App() {
   const [modalOpen, setModalOpen] = useState(true)
 
   const handleUpdate = () => {
-    setTimeout(() => {
-      setModalOpen(false)
-    }, 2000)
+    setModalOpen(false)
   }
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {}
+
   return (
-    <div style={{ width: '100vw', height: '100vh' }}>
-      <Modal
-        headerText='Edit profile info'
-        open={modalOpen}
-        handleClose={() => setModalOpen(false)}
-      >
-        <div>
-          <EditableInput />
-        </div>
-        <div>
-          <EditableInput />
-        </div>
-        <div>
-          <EditableInput />
-        </div>
-        <div style={{ marginTop: '10px' }}>
-          <Button handleClick={handleUpdate} block={true}/> 
-        </div>
-      </Modal>
-    </div>
+    <Theme config={{ theme: 'dark' }}>
+      <Toggler />
+      <EditableInput />
+    </Theme>
   )
 }
 

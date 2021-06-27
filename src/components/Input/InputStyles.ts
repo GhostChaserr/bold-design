@@ -12,15 +12,10 @@ export const StyledLabelWrapper = styled.div`
   margin: 10px 0;
 `
 
-export const StyledLabel = styled.label<{
-  theme: ThemeType
-}>`
+export const StyledLabel = styled.label`
   font-size: 1rem;
   padding-left: 10px;
-  color: ${({ theme }) => {
-    if (theme === 'dark') return 'white;'
-    else return 'black;'
-  }}
+  color: ${({ theme }) => theme.text};
 `
 
 export const StyledInputContainer = styled.div<{ size?: InputSize,  }>`

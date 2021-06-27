@@ -1,8 +1,13 @@
+export type ModalPresetTypes =
+  'center' |
+  'top' |
+  'bottom'
 
 
 
 export type ModalProps = {
+  preset?: ModalPresetTypes
   open: boolean
-  headerText?: string
   handleClose: () => void
+  height?: string
 }

@@ -1,32 +1,43 @@
-import {FC } from 'react'
-
+import { FC } from 'react'
 import { ModalProps } from './ModalTypes'
 
-import {
-  StyledModalContainer,
-  StyledModalContentContainer,
-  StyledModalChildrenContainer,
-  StyledCloseButton,
-  StyledHeader
-} from './ModalStyles'
+import Centered from './Centered'
+import TopPositioned from './TopPositioned'
 
-
-const Modal: FC<ModalProps> = ({ open, children, headerText, handleClose }) => {
+const Modal: FC<ModalProps> = ({
+  open,
+  preset,
+  children,
+  handleClose,
+  height,
+}) => {
   return (
-    <StyledModalContainer open={open} >
-      <StyledModalContentContainer open={open}>
-        <StyledCloseButton onClick={handleClose} >
-          X
-        </StyledCloseButton>
-        <StyledHeader>
-          {headerText ? headerText : 'Sample modal'}
-        </StyledHeader>
-        <StyledModalChildrenContainer>
-          {children}
-        </StyledModalChildrenContainer>
-      </StyledModalContentContainer>
-    </StyledModalContainer>
+    <>
+      {preset === 'center' && <Centered handleClose={handleClose} open={open} children={children} />}
+      {preset === 'top' && (
+        <TopPositioned
+          height={height}
+          handleClose={handleClose}
+          open={open}
+          children={children}
+          bottomPositioned={false}
+        />
+      )}
+      {preset === 'bottom' && (
+        <TopPositioned
+          height={height}
+          handleClose={handleClose}
+          open={open}
+          children={children}
+          bottomPositioned={true}
+        />
+      )}
+    </>
   )
+}
+
+Modal.defaultProps = {
+  preset: 'center'
 }
 
 export default Modal

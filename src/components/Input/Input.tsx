@@ -1,4 +1,4 @@
-import { InputProps } from "./InputTypes";
+import { InputProps } from './InputTypes'
 
 import {
   StyledInputWrapper,
@@ -6,7 +6,7 @@ import {
   StyledInputContainer,
   StyledLabelWrapper,
   StyledLabel,
-} from "./InputStyles";
+} from './InputStyles'
 
 const Input = ({
   placeHolder,
@@ -35,17 +35,17 @@ const Input = ({
         {icon && icon}
       </StyledInputContainer>
     </StyledInputWrapper>
-  );
-};
+  )
+}
 
 Input.defaultProps = {
-  placeHolder: "Placeholder",
-  iconClassName: "fas fa-at",
-  label: "First name",
-  type: "text",
-  size: "sm",
+  placeHolder: 'Placeholder',
+  iconClassName: 'fas fa-at',
+  label: 'First name',
+  type: 'text',
+  size: 'sm',
   error: false,
-  icon: <i className="fas fa-user-tie"></i>,
-};
+  icon: <i className='fas fa-user-tie'></i>,
+}
 
-export default Input;
+export default Input
