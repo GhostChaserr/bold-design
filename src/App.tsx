@@ -10,7 +10,12 @@ import Button from 'components/Button'
 import Tab from 'components/Tab'
 import Modal from 'components/Modal'
 import Theme from 'components/Theme'
+import DatePicker from 'components/DatePicker'
 import { ThemeContext } from 'contexts'
+import Notification from 'components/Notification'
+import { notification } from 'utils/event.utils'
+import Menu from 'components/Menu'
+
 
 
 const tabComponents = [
@@ -38,13 +43,21 @@ function App() {
     setModalOpen(false)
   }
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {}
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => { }
+
+  const handleOpenNotification = () => {
+    notification({ position: 'topRight' })
+  }
 
   return (
-    <Theme config={{ theme: 'dark' }}>
-      <Toggler />
-      <EditableInput />
-    </Theme>
+    <>
+      <Menu />
+    </>
+    // <DatePicker visible={true} />
+    // <Theme config={{ theme: 'dark' }}>
+    //   <Toggler />
+    //   <EditableInput />
+    // </Theme>
   )
 }
 
