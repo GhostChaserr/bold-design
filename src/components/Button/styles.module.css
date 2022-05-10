@@ -2,7 +2,6 @@
   outline: none;
   border: none;
   cursor: pointer;
-  padding: 0 12px;
   border-radius: 6px;
   width: 180px;
   height: 40px;
@@ -27,4 +26,9 @@ and (max-device-width : 480px) {
 
 .highlight {
   background-color: var(--secondary-button-background);
+}
+
+
+.btn_block {
+  width: 100%;
 }

@@ -1,0 +1,62 @@
+.container {
+  width: 100%;
+  background-color: var(--content-bg-1);
+  display: flex;
+  flex-direction: row;
+  height: 40px;
+  justify-content: start;
+  border-radius: 22px;
+}
+
+
+.icon_container {
+  width: 40px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty_container {
+  width: 40px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+}
+
+.icon_container > *{
+  color: white;
+  opacity: 0.8;
+  font-weight: bold;
+}
+
+.input {
+  outline: none;
+  border: none;
+  background: transparent;
+  width: 100%;
+}
+
+.expanded_input_container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.expanded_input_arrow_icon {
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  outline: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.expanded_input_arrow_icon > * {
+  color: white;
+}

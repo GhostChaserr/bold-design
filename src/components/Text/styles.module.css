@@ -1,4 +1,14 @@
 .container {
   color: var(--primary-text);
+  font-weight: bold;
+
   -webkit-font-smoothing: antialiased;
+}
+
+.normal {
+  font-size: 16px;
+}
+
+.lg {
+  font-size: 20px;
 }
