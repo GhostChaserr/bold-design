@@ -1,64 +1,38 @@
-import React, { useContext, useState } from 'react'
+import { Card, Text, Button  } from 'components';
+import './components/theme.css'
 
-
-
-
-// Load components
-import EditableInput from './components/EditableInput'
-import Input from 'components/Input'
-import Button from 'components/Button'
-import Tab from 'components/Tab'
-import Modal from 'components/Modal'
-import Theme from 'components/Theme'
-import DatePicker from 'components/DatePicker'
-import { ThemeContext } from 'contexts'
-import Notification from 'components/Notification'
-import { notification } from 'utils/event.utils'
-import Menu from 'components/Menu'
-
-
-
-const tabComponents = [
-  {
-    tab: 'products',
-    component: <p> Products component </p>
-  },
-  {
-    tab: 'accessories',
-    component: <p> Component.. </p>
-  }
-]
-
-const Toggler = () => {
-  const { themeToggler } = useContext(ThemeContext)
+const TestCard = () => {
   return (
-    <button onClick={themeToggler}> Toggle </button>
+    <div style={{ width: '400px', padding: '50px' }}>
+      <Card>
+        <Text 
+          text='ვინმეს ხომ არ გინდათ სიამის კატის კნუტი? ლოკაცია კახეთი. დედა ნაღდი სიამის კატა მამა unknown, ნაღდი კახელი კია ეგ ვიცი დანამდვილებით. შვილი რა გამოვიდა მაგას თქვენც ნაცავთ 2-3 კვირაში 😃😃💜'
+        />
+        <Text 
+          text='ვინმეს ხომ არ გინდათ სიამის კატის კნუტი? ლოკაცია კახეთი. დედა ნაღდი სიამის კატა მამა unknown, ნაღდი კახელი კია ეგ ვიცი დანამდვილებით. შვილი რა გამოვიდა მაგას თქვენც ნაცავთ 2-3 კვირაში 😃😃💜'
+        />
+        <Text 
+          text='ვინმეს ხომ არ გინდათ სიამის კატის კნუტი? ლოკაცია კახეთი. დედა ნაღდი სიამის კატა მამა unknown, ნაღდი კახელი კია ეგ ვიცი დანამდვილებით. შვილი რა გამოვიდა მაგას თქვენც ნაცავთ 2-3 კვირაში 😃😃💜'
+        />
+        <Text 
+          text='ვინმეს ხომ არ გინდათ სიამის კატის კნუტი? ლოკაცია კახეთი. დედა ნაღდი სიამის კატა მამა unknown, ნაღდი კახელი კია ეგ ვიცი დანამდვილებით. შვილი რა გამოვიდა მაგას თქვენც ნაცავთ 2-3 კვირაში 😃😃💜'
+        />
+      </Card>
+      <Card>
+        <Text 
+          text='ვინმეს ხომ არ გინდათ სიამის კატის კნუტი? ლოკაცია კახეთი. დედა ნაღდი სიამის კატა მამა unknown, ნაღდი კახელი კია ეგ ვიცი დანამდვილებით. შვილი რა გამოვიდა მაგას თქვენც ნაცავთ 2-3 კვირაში 😃😃💜'
+        />
+        <Button
+          text='დადასტურება'
+          variant='primary'
+        />
+        <Button
+          text='დადასტურება'
+          variant='highlight'
+        />
+      </Card>
+    </div>
   )
 }
 
-function App() {
-  const [modalOpen, setModalOpen] = useState(true)
-
-  const handleUpdate = () => {
-    setModalOpen(false)
-  }
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => { }
-
-  const handleOpenNotification = () => {
-    notification({ position: 'topRight' })
-  }
-
-  return (
-    <>
-      <Menu />
-    </>
-    // <DatePicker visible={true} />
-    // <Theme config={{ theme: 'dark' }}>
-    //   <Toggler />
-    //   <EditableInput />
-    // </Theme>
-  )
-}
-
-export default App
+export default TestCard

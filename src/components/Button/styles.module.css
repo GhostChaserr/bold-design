@@ -1,0 +1,30 @@
+.button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 12px;
+  border-radius: 6px;
+  width: 180px;
+  height: 40px;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--primary-button-text);
+  margin: 5px;
+}
+
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+  .button {
+    width: 100%;
+  }
+}
+
+.primary {
+  background-color: var(--primary-button-background);
+}
+
+.highlight {
+  background-color: var(--secondary-button-background);
+}

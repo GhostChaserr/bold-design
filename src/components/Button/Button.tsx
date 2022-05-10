@@ -1,37 +1,22 @@
-import React from 'react'
+import classNames from 'classnames'
+import { FC, ReactNode } from 'react'
+import styles from './styles.module.css'
 
-import { ButtonProps } from './ButtonTypes'
-import { StyledButton } from './ButtonStyles'
+type ButtonVariant = 'highlight' | 'primary'
+type ButtonSize = 'block' | 'lg' | 'sm'
 
-const Button = ({
-  text,
-  width,
-  block,
-  disabled,
-  size,
-  color,
-  handleClick,
-}: ButtonProps) => {
-  return (
-    <React.Fragment>
-      <StyledButton
-        onClick={handleClick}
-        disabled={disabled}
-        size={size}
-        color={color}
-        block={block}
-        width={width}
-      >{text}</StyledButton>
-    </React.Fragment>
-  )
+type Props = {
+  text: string
+  variant: ButtonVariant
+  icon?: ReactNode
 }
 
-Button.defaultProps = {
-  text: 'Upload now',
-  width: 200,
-  size: 'md',
-  color: 'strongRed',
-  block: false,
+const Button: FC<Props> = ({ text, variant }) => {
+  const classes = [styles.button]
+  if (variant === 'highlight') classes.push(styles.highlight)
+  else if (variant === 'primary') classes.push(styles.primary)
+
+  return <button className={classNames(classes)}>{text}</button>
 }
 
 export default Button

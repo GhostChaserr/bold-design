@@ -1,0 +1,4 @@
+.container {
+  color: var(--primary-text);
+  -webkit-font-smoothing: antialiased;
+}
