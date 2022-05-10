@@ -7,6 +7,7 @@ import {
   Avatar,
   Space,
   TextInput,
+  Search,
   Devider
 } from 'components'
 import './components/theme.css'
@@ -79,6 +80,11 @@ const TestCard = () => {
           text="შესავალი" 
         />
         <Button block={true} text="შესავალის რედაქტირება" variant="highlight" />
+      </Card>
+      <Card>
+        <Search
+          onChange={(text) => console.log('text')}
+        />
       </Card>
     </div>
   )
