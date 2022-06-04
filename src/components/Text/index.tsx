@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import React, { FC, CSSProperties } from 'react'
+import { FC, CSSProperties } from 'react'
 import styles from './styles.module.css'
 
 type Props = {

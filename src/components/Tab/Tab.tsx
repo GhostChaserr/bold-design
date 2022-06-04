@@ -1,73 +1,53 @@
-import React, { useState } from 'react'
+import { ReactNode, useState, FC } from 'react'
+import classNames from 'classnames'
+import styles from './styles.module.css'
 
-import { TabProps } from './TabTypes'
-import {
-  StyledTabButtonContainer,
-  StyledTabButton,
-  StyledTabButtonsWrapper,
-  StyledTabContentWrapper,
-  StyledTabWrapper,
-} from './TabStyles'
+type TabComponent = {
+  tab: string
+  component: ReactNode
+}
 
+type TabProps = {
+  content: TabComponent[]
+}
 
-const Tab = ({
-  tabComponents,
-  center
-}: TabProps) => {
-  const [activeTab, setActiveTab] = useState<string>(tabComponents[0].tab)
-  const tabs = tabComponents.map(tabComponent => tabComponent.tab)
-
+const Tab: FC<TabProps> = (props) => {
+  const [activeTab, setActiveTab] = useState<string>(props.content[0].tab)
+  const tabs = props.content.map((content) => content.tab)
   const handleTabChange = (tab: string) => setActiveTab(tab)
-  const renderTabButton = (tab: string) => {
+  const renderContent = (activeTab: string) => {
+    return props.content.find((tabComponent) => tabComponent.tab === activeTab)
+      ?.component
+  }
 
-    // Get current tab.
+  const renderTabButton = (tab: string) => {
     const active: string = activeTab
     const isActive: boolean = active === tab
-
+    const classes = [styles.tab_button].concat(
+      isActive ? [styles.tab_button_active] : []
+    )
     return (
-      <StyledTabButtonContainer key={tab}>
-        <StyledTabButton
-          className='bold-design__tab__button'
-          isActive={isActive}
-          onClick={() => handleTabChange(tab)}>
+      <div className={classNames(styles.tab_button_container)}>
+        <button
+          onClick={() => handleTabChange(tab)}
+          className={classNames(classes)}
+        >
           {tab}
-        </StyledTabButton>
-      </StyledTabButtonContainer >
+        </button>
+      </div>
     )
   }
 
-  const renderContent = (activeTab: string) => {
-    return tabComponents.find(tabComponent => tabComponent.tab === activeTab)?.component
-  }
-
   return (
-    <StyledTabWrapper>
-      <StyledTabButtonsWrapper center={center}>
-        {tabs.map(tab => renderTabButton(tab))}
-      </StyledTabButtonsWrapper>
-      <StyledTabContentWrapper>
+    <div className={classNames(styles.wrapper)}>
+      <div className={classNames(styles.buttons_container)}>
+        {tabs.map((tab) => renderTabButton(tab))}
+      </div>
+      <div className={classNames(styles.tab_button_content_container)}>
         {renderContent(activeTab)}
-      </StyledTabContentWrapper>
-    </StyledTabWrapper>
+      </div>
+    </div>
   )
-
-}
-
-Tab.defaultProps = {
-  center: false,
-  tabComponents: [
-    {
-      tab: 'products',
-      component: <p> Products component </p>
-    },
-    {
-      tab: 'accessories',
-      component: <p> accessories component </p>
-    },
-  ]
-
 }
 
 export default Tab
-
-
