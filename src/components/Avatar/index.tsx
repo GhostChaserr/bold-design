@@ -11,14 +11,18 @@ type AvatarProps = {
   margin?: string
 };
 
-const Avatar: FC<AvatarProps> = ({ size, margin }) => {
+const Avatar: FC<AvatarProps> = ({ size, margin, isActive }) => {
   return (
-    <div style={{ margin }} className={classNames(styles.base_container)}>
+    <div style={{ margin }} className={classNames(styles.base_container, styles[size])}>
       <img
-        className={classNames(styles.inner_image, styles[size])}
+        className={classNames(styles.inner_image, isActive && styles.active)}
         src="https://m.media-amazon.com/images/M/MV5BMTMxOTEwNDcxN15BMl5BanBnXkFtZTcwOTg0MTUzNA@@._V1_.jpg"
         alt=""
       />
+      {isActive && (
+        <div className={classNames(styles.active_dot)}>
+        </div>
+      )}
     </div>
   );
 };

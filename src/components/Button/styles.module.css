@@ -1,15 +1,20 @@
+
 .button {
   outline: none;
   border: none;
   cursor: pointer;
   border-radius: 6px;
-  width: 180px;
   height: 40px;
   box-sizing: border-box;
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 600;
   color: var(--primary-button-text);
   margin: 5px;
+  padding: 0 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 @media only screen 
@@ -20,15 +25,56 @@ and (max-device-width : 480px) {
   }
 }
 
+
+.icon_container > * {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.text_container {
+  margin-left: 5px;
+}
+
+
+
+
+/* 
+  Sizing 
+  
+*/
+
+.sm {
+  height: 30px;
+}
+
+.md {
+  height: 40px;
+}
+
+.lg {
+  height: 45px;
+  font-size: 18px;
+}
+
+/* 
+
+  Categories 
+  
+*/
 .primary {
   background-color: var(--primary-button-background);
 }
 
-.highlight {
+.gray_hightlight {
   background-color: var(--secondary-button-background);
 }
 
+.white_highlight {
+  background-color: var(--fb-wordmark);
+  color: black;
+}
 
 .btn_block {
   width: 100%;
 }
+

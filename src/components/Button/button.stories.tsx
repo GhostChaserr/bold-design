@@ -1,6 +1,6 @@
 
 import styled from 'styled-components'
-import Button from './Button'
+import Button from '.'
 import { Meta  } from "@storybook/react/types-6-0";
 
 const StyledPreviewWrapper = styled.div`

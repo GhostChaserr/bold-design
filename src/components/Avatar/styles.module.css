@@ -1,6 +1,7 @@
 .base_container {
-  width: auto;
-  height: auto;
+  position: relative;
+  border-radius: 100%;
+  position: relative;
 }
 
 .inner_image {
@@ -10,9 +11,22 @@
   object-fit: cover;
 }
 
+.active_dot {
+  background-color: var(--base-lime);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-radius: 50%;
+}
+
 .sm {
   width: 30px;
   height: 30px;
+}
+
+.sm .active_dot {
+  width: 10px;
+  height: 10px;
 }
 
 .md {
@@ -20,7 +34,19 @@
   height: 40px;
 }
 
+
+.md .active_dot {
+  width: 10px;
+  height: 10px;
+}
+
 .lg {
   width: 80px;
   height: 80px;
 }
+
+.lg .active_dot {
+  width: 20px;
+  height: 20px;
+}
+
