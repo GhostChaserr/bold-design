@@ -1,9 +1,18 @@
 import './components/theme.css'
-import { Avatar, Card, Button } from 'components'
+import { Avatar, Card, Button, Icon } from 'components'
 import { BsWifi } from 'react-icons/bs'
+import { BsFillCameraVideoFill } from "react-icons/bs";
+
 
 
 const App = () => {
+
+  return (
+    <Card>
+      <Icon size="lg" icon={<BsFillCameraVideoFill />} />
+    </Card>
+  )
+
   return (
     <>
       <Card variant='withPadding'>

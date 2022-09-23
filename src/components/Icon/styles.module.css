@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--content-bg-1);
+  border-radius: 100%;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  transition: all 0.2s;
+  margin: 0 5px;
+}
+
+.container > * {
+  font-weight: bold;
+  font-size: 18px;
+  color: white;
+}
+
+.container:hover {
+  transform: translateY(-2px);
+  transition: all 0.2s;
+}
+
+.sm  {
+  width: 36px;
+  height: 36px;
+}
+
+.sm > * {
+  width: 60%;
+  height: 60%;  
+}
+
+.md {
+  width: 40px;
+  height: 40px;
+}
+
+.md > * {
+  width: 60%;
+  height: 60%;  
+}
+
+
+.lg {
+  width: 80px;
+  height: 80px; 
+}
+
+.lg > * {
+  width: 60%;
+  height: 60%;  
+}
